@@ -1,19 +1,25 @@
 import { useState } from 'react'
 import './App.css'
+import mailLogo from './assets/mail.svg'
+import githubLogo from './assets/github.svg'
+import linkedinLogo from './assets/linkedin.svg'
 
 function App() {
   const [count, setCount] = useState(0)
 
   return (
     <div className="App">
-      {/* <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
+      <div>
+        <a href="mailto:hoeung@uwindsor.ca" target="_blank">
+          <img src={mailLogo} className="logo email" alt="Email logo"/>
         </a>
-        <a href="https://reactjs.org" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
+        <a href="https://github.com/angelohoeung/" target="_blank">
+          <img src={githubLogo} className="logo github" alt="GitHub logo"/>
         </a>
-      </div> */}
+        <a href="https://www.linkedin.com/in/angelohoeung/" target="_blank">
+          <img src={linkedinLogo} className="logo linkedin" alt="LinkedIn logo" />
+        </a>
+      </div>
       <h1>Angelo Hoeung</h1>
       <p>Hi, this is my personal website made in React.js using Vite.</p>
       {/* <div className="card">
