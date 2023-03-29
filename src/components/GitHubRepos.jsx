@@ -79,7 +79,7 @@ const GitHubRepos = ({ username }) => {
           </h3>
           <p>{repo.description}</p>
           {/* <p>Language: {repo.language}</p> */}
-          <p>Latest Commit: {repo.latestCommitDate || "No commits yet"}</p>
+          <p>Latest commit: {repo.latestCommitDate || "No commits yet"}</p>
           {/* {repo.about && <p>About: {repo.about}</p>} */}
         </div>
       ))}
