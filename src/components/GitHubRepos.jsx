@@ -3,11 +3,11 @@ import axios from "axios";
 import "../App.css";
 
 const source =
-  "https://raw.githubusercontent.com/devicons/devicon/master/icons";
+  "https://raw.githubusercontent.com/PKief/vscode-material-icon-theme/main/icons";
 
 function get_url(lang) {
   let lName = get_name(lang);
-  if (lName) return `${source}/${lName}/${lName}-original.svg`;
+  if (lName) return `${source}/${lName}.svg`;
   else return "";
 }
 
@@ -16,7 +16,7 @@ function get_name(lang) {
   if (lang == "null" || lang == "undefined") return "";
 
   lang = lang.replace("#", "sharp");
-  lang = lang.replace("css", "css3")
+  // lang = lang.replace("css", "css3");
   lang = lang.toLowerCase();
   return lang;
 }
@@ -100,13 +100,12 @@ const GitHubRepos = ({ username }) => {
                 src={get_url(repo.language)}
                 alt={repo.language}
                 title={repo.language}
+                style={{ marginLeft: "auto" }}
               />
             )}
           </h3>
           <p>{repo.description}</p>
-          {/* <p>Language: {repo.language}</p> */}
           <p>Latest commit: {repo.latestCommitDate || "No commits yet"}</p>
-          {/* {repo.about && <p>About: {repo.about}</p>} */}
         </div>
       ))}
     </div>

@@ -45,9 +45,10 @@ h2 {
   text-align: left;
 }
 
-/* h3 {
-  white-space: nowrap;
-} */
+h3 {
+  display: flex;
+  align-items: center;
+}
 
 button {
   border-radius: 8px;

@@ -37,17 +37,6 @@ function App() {
       <p>Hi, this is my personal website made in React.js using Vite.</p>
       <h2>Projects</h2>
       <GitHubRepos username="angelohoeung" />
-      {/* <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p> */}
     </div>
   );
 }
