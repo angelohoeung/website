@@ -46,7 +46,7 @@
 
 .repos-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 20px;
   text-align: left;
 }
@@ -57,7 +57,13 @@
   padding: 15px;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 992px) {
+  .repos-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (max-width: 600px) {
   .repos-grid {
     grid-template-columns: 1fr;
   }

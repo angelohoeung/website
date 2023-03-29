@@ -15,14 +15,14 @@ function App() {
           <img src={emailLogo} className="logo email" alt="Email logo" />
         </a>
         <a
-          href="https://github.com/angelohoeung/"
+          href="https://github.com/angelohoeung"
           title="GitHub"
           target="_blank"
         >
           <img src={githubLogo} className="logo github" alt="GitHub logo" />
         </a>
         <a
-          href="https://www.linkedin.com/in/angelohoeung/"
+          href="https://www.linkedin.com/in/angelohoeung"
           title="LinkedIn"
           target="_blank"
         >

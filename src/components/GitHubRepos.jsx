@@ -75,7 +75,12 @@ const GitHubRepos = ({ username }) => {
             <a href={repo.html_url} target="_blank">
               {repo.name}
             </a>
-            {repo.language && <span className="language-icon" data-language={repo.language}> {repo.language}</span>}
+            {repo.language && (
+              <span className="language-icon" data-language={repo.language}>
+                {" "}
+                {repo.language}
+              </span>
+            )}
           </h3>
           <p>{repo.description}</p>
           {/* <p>Language: {repo.language}</p> */}

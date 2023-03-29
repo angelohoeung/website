@@ -45,6 +45,10 @@ h2 {
   text-align: left;
 }
 
+/* h3 {
+  white-space: nowrap;
+} */
+
 button {
   border-radius: 8px;
   border: 1px solid transparent;
