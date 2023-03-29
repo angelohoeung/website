@@ -2,6 +2,25 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "../App.css";
 
+const source =
+  "https://raw.githubusercontent.com/devicons/devicon/master/icons";
+
+function get_url(lang) {
+  let lName = get_name(lang);
+  if (lName) return `${source}/${lName}/${lName}-original.svg`;
+  else return "";
+}
+
+function get_name(lang) {
+  lang = String(lang);
+  if (lang == "null" || lang == "undefined") return "";
+
+  lang = lang.replace("#", "sharp");
+  lang = lang.replace("css", "css3")
+  lang = lang.toLowerCase();
+  return lang;
+}
+
 const GitHubRepos = ({ username }) => {
   const [repos, setRepos] = useState([]);
 
@@ -76,10 +95,12 @@ const GitHubRepos = ({ username }) => {
               {repo.name}
             </a>
             {repo.language && (
-              <span className="language-icon" data-language={repo.language}>
-                {" "}
-                {repo.language}
-              </span>
+              <img
+                className="language-icon"
+                src={get_url(repo.language)}
+                alt={repo.language}
+                title={repo.language}
+              />
             )}
           </h3>
           <p>{repo.description}</p>
