@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import axios from "axios";
 import "../App.css";
 
 const iconUrl = (lang) => {
@@ -11,26 +12,30 @@ const iconUrl = (lang) => {
 const GitHubRepos = ({ username }) => {
   const [repos, setRepos] = useState([]);
   const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    const fetchRepos = async () => {
-      try {
-        const response = await fetch(
-          `https://api.github.com/users/${username}/repos?sort=pushed&per_page=6`
-        );
-        if (!response.ok) {
-          throw new Error("Failed to fetch data from the GitHub API");
-        }
-        const data = await response.json();
-        setRepos(data);
+    setLoading(true);
+    axios
+      .get(
+        `https://api.github.com/users/${username}/repos?sort=pushed&per_page=6`
+      )
+      .then((response) => {
+        setRepos(response.data);
         setError(null);
-      } catch (error) {
+      })
+      .catch((error) => {
         console.error(error);
         setError("Error fetching data from the GitHub API");
-      }
-    };
-    fetchRepos();
+      })
+      .finally(() => {
+        setLoading(false);
+      });
   }, [username]);
+
+  if (loading) {
+    return <p>Loading...</p>;
+  }
 
   if (error) {
     return <p>{error}</p>;
