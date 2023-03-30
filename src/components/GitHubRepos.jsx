@@ -57,11 +57,7 @@ const GitHubRepos = ({ username }) => {
                 response.data.length > 0
                   ? new Date(
                       response.data[0].commit.author.date
-                    ).toLocaleDateString("en-US", {
-                      year: "numeric",
-                      month: "2-digit",
-                      day: "2-digit",
-                    })
+                    ).toLocaleDateString("en-CA")
                   : "No commits yet";
               // set the repository information along with the 'latestCommitDate' field
               setRepos((prevRepos) => {
