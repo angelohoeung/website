@@ -6,40 +6,84 @@ const source =
   "https://raw.githubusercontent.com/PKief/vscode-material-icon-theme/main/icons";
 
 function get_url(lang) {
-  const lName = get_name(lang);
-  return lName ? `${source}/${lName}.svg` : "";
+  let lName = get_name(lang);
+  if (lName) return `${source}/${lName}.svg`;
+  else return "";
 }
 
 function get_name(lang) {
-  lang = String(lang).toLowerCase().replace("#", "sharp");
-  return lang == "null" || lang == "undefined" ? "" : lang;
+  lang = String(lang);
+  if (lang == "null" || lang == "undefined") return "";
+
+  lang = lang.replace("#", "sharp");
+  // lang = lang.replace("css", "css3");
+  lang = lang.toLowerCase();
+  return lang;
 }
 
 const GitHubRepos = ({ username }) => {
   const [repos, setRepos] = useState([]);
 
   useEffect(() => {
-    const fetchRepos = async () => {
-      try {
-        const response = await axios.get(
-          `https://api.github.com/users/${username}/repos?sort=updated`
-        );
-        const repos = response.data.map((repo) => ({
-          id: repo.id,
-          name: repo.name,
-          url: repo.html_url,
-          description: repo.description,
-          language: repo.language,
-          latestCommitDate: repo.updated_at
-            ? new Date(repo.updated_at).toLocaleDateString("en-CA")
-            : "No commits yet",
-        }));
-        setRepos(repos);
-      } catch (error) {
+    axios
+      .get(`https://api.github.com/users/${username}/repos?sort=updated`)
+      .then((response) => {
+        const reposWithAboutAndCommits = response.data.map((repo) => {
+          // fetch the repository information
+          axios
+            .get(`https://api.github.com/repos/${username}/${repo.name}`)
+            .then((response) => {
+              const about = response.data.description;
+              // set the repository information along with the 'about' field
+              setRepos((prevRepos) => {
+                return prevRepos.map((r) => {
+                  if (r.id === repo.id) {
+                    return { ...r, about };
+                  }
+                  return r;
+                });
+              });
+            })
+            .catch((error) => {
+              console.log(error);
+            });
+          // fetch the date of the latest commit for the repository
+          axios
+            .get(
+              `https://api.github.com/repos/${username}/${repo.name}/commits`
+            )
+            .then((response) => {
+              const latestCommitDate =
+                response.data.length > 0
+                  ? new Date(
+                      response.data[0].commit.author.date
+                    ).toLocaleDateString("en-US", {
+                      year: "numeric",
+                      month: "2-digit",
+                      day: "2-digit",
+                    })
+                  : "No commits yet";
+              // set the repository information along with the 'latestCommitDate' field
+              setRepos((prevRepos) => {
+                return prevRepos.map((r) => {
+                  if (r.id === repo.id) {
+                    return { ...r, latestCommitDate };
+                  }
+                  return r;
+                });
+              });
+            })
+            .catch((error) => {
+              console.log(error);
+            });
+          // return the repository object with null values for 'about' and 'latestCommitDate'
+          return { ...repo, about: null, latestCommitDate: null };
+        });
+        setRepos(reposWithAboutAndCommits);
+      })
+      .catch((error) => {
         console.log(error);
-      }
-    };
-    fetchRepos();
+      });
   }, [username]);
 
   return (
@@ -47,7 +91,7 @@ const GitHubRepos = ({ username }) => {
       {repos.slice(0, 6).map((repo) => (
         <div key={repo.id} className="repo-item">
           <h3>
-            <a href={repo.url} target="_blank" rel="noopener noreferrer">
+            <a href={repo.html_url} target="_blank">
               {repo.name}
             </a>
             {repo.language && (
@@ -61,7 +105,7 @@ const GitHubRepos = ({ username }) => {
             )}
           </h3>
           <p>{repo.description}</p>
-          <p>Latest commit: {repo.latestCommitDate}</p>
+          <p>Latest commit: {repo.latestCommitDate || "No commits yet"}</p>
         </div>
       ))}
     </div>
