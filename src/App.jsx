@@ -1,4 +1,3 @@
-import { useState } from "react";
 import "./App.css";
 import GitHubRepos from "./components/GitHubRepos";
 import emailLogo from "./assets/email.svg";
@@ -6,8 +5,6 @@ import githubLogo from "./assets/github.svg";
 import linkedinLogo from "./assets/linkedin.svg";
 
 function App() {
-  const [count, setCount] = useState(0);
-
   return (
     <div className="App">
       <div>
