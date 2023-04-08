@@ -18,7 +18,8 @@ const GitHubRepos = ({ username }) => {
     setLoading(true);
     axios
       .get(
-        `https://api.github.com/users/${username}/repos?sort=pushed&per_page=6`
+        `https://api.github.com/users/${username}/repos?sort=pushed&per_page=6`,
+        { cache: true }
       )
       .then((response) => {
         setRepos(response.data);
@@ -59,8 +60,10 @@ const GitHubRepos = ({ username }) => {
               />
             )}
           </h3>
-          <p>{repo.description || "No description"}</p>
-          <p>Latest commit: {repo.pushed_at?.slice(0, 10)}</p>
+          <p style={{ paddingBottom: "2.5rem" }}>{repo.description}</p>
+          <div className="commit-date">
+            <p>Latest commit: {repo.pushed_at?.slice(0, 10)}</p>
+          </div>
         </div>
       ))}
     </div>
