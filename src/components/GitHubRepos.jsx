@@ -62,7 +62,7 @@ const GitHubRepos = ({ username }) => {
           </h3>
           <p style={{ paddingBottom: "2.5rem" }}>{repo.description}</p>
           <div className="commit-date">
-            <p>Latest commit: {repo.pushed_at?.slice(0, 10)}</p>
+            <p>Latest commit: {new Date(repo.pushed_at).toLocaleDateString("en-CA") || "No commits yet"}</p>
           </div>
         </div>
       ))}
