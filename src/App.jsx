@@ -8,7 +8,7 @@ function App() {
   return (
     <div className="App">
       <div>
-        <a href="mailto:angelohoeung@gmail.ca" title="Email" target="_blank">
+        <a href="mailto:angelohoeung@gmail.com" title="Email" target="_blank">
           <img src={emailLogo} className="logo email" alt="Email logo" />
         </a>
         <a
