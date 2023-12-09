@@ -18,7 +18,7 @@ const GitHubRepos = ({ username }) => {
     setLoading(true);
     axios
       .get(
-        `https://api.github.com/users/${username}/repos?sort=pushed&per_page=6`,
+        `https://api.github.com/users/${username}/repos?sort=pushed&per_page=9`,
         { cache: true }
       )
       .then((response) => {
