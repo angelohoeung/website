@@ -1,13 +1,36 @@
+import { useEffect } from "react";
 import Navbar from "./components/Navbar";
 import GitHubRepos from "./components/GitHubRepos";
 
-const navigationHeight = document.querySelector("nav")?.offsetHeight;
-document.documentElement.style.setProperty(
-  "--scroll-padding",
-  `${navigationHeight}px`
-);
+const useAdjustScrollPadding = () => {
+  useEffect(() => {
+    const adjustScrollPadding = () => {
+      const navigationHeight = document.querySelector("nav")?.offsetHeight || 0;
+      document.documentElement.style.setProperty(
+        "--scroll-padding",
+        `${navigationHeight}px`
+      );
+    };
+
+    adjustScrollPadding();
+
+    let resizeTimer: number | undefined;
+    const handleResize = () => {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(() => {
+        adjustScrollPadding();
+      }, 250);
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+};
 
 function App() {
+  useAdjustScrollPadding();
+
   return (
     <>
       <Navbar />
