@@ -45,13 +45,13 @@ function App() {
           </p>
         </section>
       </div>
-      <section className="max-w-screen-xl mx-auto px-5 lg:px-0 mb-24">
+      <section className="max-w-screen-xl mx-auto px-5 xl:px-0 mb-24">
         <h1 id="projects" className="text-5xl mb-12">
           Projects
         </h1>
         <GitHubRepos username="angelohoeung" />
       </section>
-      <section className="max-w-screen-xl mx-auto px-5 lg:px-0 mb-12">
+      <section className="max-w-screen-xl mx-auto px-5 xl:px-0 mb-12">
         <h1 id="contact" className="text-5xl mb-12">
           Contact
         </h1>
