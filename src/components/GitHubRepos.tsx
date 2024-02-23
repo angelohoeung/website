@@ -29,7 +29,10 @@ const GitHubRepos = ({ username }: { username: string }) => {
         `https://api.github.com/users/${username}/repos?sort=pushed&per_page=9`
       )
       .then((response) => {
-        setRepos(response.data);
+        const filteredRepos = response.data.filter(
+          (repo: Repo) => repo.language
+        );
+        setRepos(filteredRepos);
       })
       .catch((error) => {
         console.error(error);
