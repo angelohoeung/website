@@ -30,11 +30,11 @@ const Navbar = () => {
       }, 250);
     };
 
-    window.addEventListener("orientationchange", handleResize);
+    screen.orientation.addEventListener("change", handleResize);
     window.addEventListener("resize", handleResize);
 
     return () => {
-      window.removeEventListener("orientationchange", handleResize);
+      screen.orientation.removeEventListener("change", handleResize);
       window.removeEventListener("resize", handleResize);
     };
   }, []);
