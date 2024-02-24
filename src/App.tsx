@@ -1,40 +1,12 @@
-import { useEffect } from "react";
 import Navbar from "./components/Navbar";
 import GitHubRepos from "./components/GitHubRepos";
 import ContactForm from "./components/ContactForm";
 
-const useAdjustScrollPadding = () => {
-  useEffect(() => {
-    const adjustScrollPadding = () => {
-      const navigationHeight = document.querySelector("nav")?.offsetHeight || 0;
-      document.documentElement.style.setProperty(
-        "--scroll-padding",
-        `${navigationHeight}px`,
-      );
-    };
-
-    adjustScrollPadding();
-
-    let resizeTimer: number | undefined;
-    const handleResize = () => {
-      clearTimeout(resizeTimer);
-      resizeTimer = setTimeout(() => {
-        adjustScrollPadding();
-      }, 250);
-    };
-
-    window.addEventListener("resize", handleResize);
-
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
-};
-
 function App() {
-  useAdjustScrollPadding();
   return (
     <>
       <Navbar />
-      <div className="flex min-h-[calc(100dvh-var(--scroll-padding))] items-center justify-center">
+      <div className="flex min-h-[100dvh] items-center justify-center pt-[--scroll-padding]">
         <section className="max-w-2xl px-5 text-center md:px-0">
           <p className="text-base font-extralight">Hi, my name is</p>
           <h1 className="py-4 text-6xl">Angelo Hoeung</h1>

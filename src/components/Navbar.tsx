@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import logo from "/android-chrome-192x192.png";
 import SocialIcons from "./SocialIcons";
 import DarkModeToggle from "./DarkModeToggle";
@@ -10,8 +10,37 @@ const Navbar = () => {
     setIsOpen(!isOpen);
   };
 
+  useEffect(() => {
+    const adjustScrollPadding = () => {
+      const navigationHeight = document.querySelector("nav")?.offsetHeight || 0;
+      document.documentElement.style.setProperty(
+        "--scroll-padding",
+        `${navigationHeight}px`,
+      );
+    };
+
+    adjustScrollPadding();
+
+    let resizeTimer: number | undefined;
+    const handleResize = () => {
+      setIsOpen(false);
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(() => {
+        adjustScrollPadding();
+      }, 250);
+    };
+
+    window.addEventListener("orientationchange", handleResize);
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("orientationchange", handleResize);
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
   return (
-    <nav className="sticky start-0 top-0 z-20 w-full bg-white dark:bg-gray-900">
+    <nav className="fixed start-0 top-0 z-20 w-full bg-white dark:bg-gray-900">
       <div className="mx-auto flex max-w-screen-xl flex-wrap items-center justify-between p-4">
         <a href="#">
           <img src={logo} className="h-12" alt="Logo" />
@@ -78,7 +107,7 @@ const Navbar = () => {
                 Contact
               </a>
             </li>
-            <li className="flex w-full justify-center gap-2 md:hidden">
+            <li className="flex w-full justify-center gap-2 py-2 md:hidden">
               <SocialIcons />
               <DarkModeToggle />
             </li>

@@ -561,6 +561,10 @@ html {
   border-width: 0;
 }
 
+.fixed {
+  position: fixed;
+}
+
 .relative {
   position: relative;
 }
@@ -586,6 +590,16 @@ html {
   margin-right: auto;
 }
 
+.my-\[--scroll-padding\] {
+  margin-top: var(--scroll-padding);
+  margin-bottom: var(--scroll-padding);
+}
+
+.my-2 {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
 .mb-12 {
   margin-bottom: 3rem;
 }
@@ -608,6 +622,10 @@ html {
 
 .mt-4 {
   margin-top: 1rem;
+}
+
+.mt-\[--scroll-padding\] {
+  margin-top: var(--scroll-padding);
 }
 
 .block {
@@ -652,6 +670,14 @@ html {
 
 .min-h-\[calc\(100dvh-var\(--scroll-padding\)\)\] {
   min-height: calc(100dvh - var(--scroll-padding));
+}
+
+.min-h-\[calc\(100dvh\+var\(--scroll-padding\)\)\] {
+  min-height: calc(100dvh + var(--scroll-padding));
+}
+
+.min-h-\[100dvh\] {
+  min-height: 100dvh;
 }
 
 .w-10 {
@@ -801,6 +827,11 @@ html {
   padding-bottom: 1rem;
 }
 
+.py-\[--scroll-padding\] {
+  padding-top: var(--scroll-padding);
+  padding-bottom: var(--scroll-padding);
+}
+
 .pb-12 {
   padding-bottom: 3rem;
 }
@@ -811,6 +842,18 @@ html {
 
 .pt-4 {
   padding-top: 1rem;
+}
+
+.pt-\[--scroll-padding\] {
+  padding-top: var(--scroll-padding);
+}
+
+.pb-\[--scroll-padding\] {
+  padding-bottom: var(--scroll-padding);
+}
+
+.pt-2 {
+  padding-top: 0.5rem;
 }
 
 .text-left {
@@ -1038,6 +1081,14 @@ html {
   .md\:px-0 {
     padding-left: 0px;
     padding-right: 0px;
+  }
+
+  .md\:pt-\[--scroll-padding\] {
+    padding-top: var(--scroll-padding);
+  }
+
+  .md\:pt-0 {
+    padding-top: 0px;
   }
 
   .md\:hover\:bg-transparent:hover {
