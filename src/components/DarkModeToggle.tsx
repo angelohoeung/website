@@ -33,12 +33,12 @@ const DarkModeToggle = () => {
       {theme === "dark" ? (
         <MdLightMode
           title="Switch theme"
-          className="hover:text-gray-500 dark:hover:text-gray-300 h-7 w-7"
+          className="h-7 w-7 hover:text-gray-500 dark:hover:text-gray-300"
         />
       ) : (
         <MdDarkMode
           title="Switch theme"
-          className="hover:text-gray-500 dark:hover:text-gray-300 h-7 w-7"
+          className="h-7 w-7 hover:text-gray-500 dark:hover:text-gray-300"
         />
       )}
     </button>

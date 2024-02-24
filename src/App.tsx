@@ -9,7 +9,7 @@ const useAdjustScrollPadding = () => {
       const navigationHeight = document.querySelector("nav")?.offsetHeight || 0;
       document.documentElement.style.setProperty(
         "--scroll-padding",
-        `${navigationHeight}px`
+        `${navigationHeight}px`,
       );
     };
 
@@ -35,32 +35,30 @@ function App() {
     <>
       <Navbar />
       <div className="flex min-h-[calc(100dvh-var(--scroll-padding))] items-center justify-center">
-        <section className="max-w-2xl px-5 md:px-0 text-center">
+        <section className="max-w-2xl px-5 text-center md:px-0">
           <p className="text-base font-extralight">Hi, my name is</p>
-          <h1 className="text-6xl py-4">Angelo Hoeung</h1>
-          <p className="text-xl py-4 font-light">
+          <h1 className="py-4 text-6xl">Angelo Hoeung</h1>
+          <p className="py-4 text-xl font-light">
             I'm a third year computer science student and teaching assistant at
             the University of Windsor. I have a passion for software development
             and am always hoping to learn more.
           </p>
         </section>
       </div>
-      <section className="max-w-screen-xl mx-auto px-5 xl:px-0 mb-24">
-        <h1 id="projects" className="text-5xl mb-12">
+      <section className="mx-auto mb-24 max-w-screen-xl px-5 xl:px-0">
+        <h1 id="projects" className="mb-12 text-5xl">
           Projects
         </h1>
         <GitHubRepos username="angelohoeung" />
       </section>
-      <section className="max-w-screen-xl mx-auto px-5 xl:px-0 mb-12">
-        <h1 id="contact" className="text-5xl mb-12">
+      <section className="mx-auto mb-12 max-w-screen-xl px-5 xl:px-0">
+        <h1 id="contact" className="mb-12 text-5xl">
           Contact
         </h1>
         <ContactForm />
       </section>
-      <footer>
-        <p className="text-center pt-24 pb-12 text-gray-500 dark:text-gray-400">
-          &copy; 2024 Angelo Hoeung
-        </p>
+      <footer className="pb-12 pt-24 text-center text-gray-500 dark:text-gray-400">
+        &copy; {new Date().getFullYear()} Angelo Hoeung
       </footer>
     </>
   );

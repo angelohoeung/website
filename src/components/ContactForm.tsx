@@ -8,26 +8,26 @@ const ContactForm = () => {
       <input
         type="text"
         name="name"
-        className="border border-gray-100 dark:border-gray-700 bg-gray-50 dark:bg-gray-800 rounded-lg text-sm w-full p-2.5 mb-6"
+        className="mb-6 w-full rounded-lg border border-gray-100 bg-gray-50 p-2.5 text-sm dark:border-gray-700 dark:bg-gray-800"
         placeholder="Name"
         required
       />
       <input
         type="email"
         name="email"
-        className="border border-gray-100 dark:border-gray-700 bg-gray-50 dark:bg-gray-800 rounded-lg text-sm w-full p-2.5 mb-6"
+        className="mb-6 w-full rounded-lg border border-gray-100 bg-gray-50 p-2.5 text-sm dark:border-gray-700 dark:bg-gray-800"
         placeholder="Email"
         required
       />
       <textarea
         name="message"
-        className="border border-gray-100 dark:border-gray-700 bg-gray-50 dark:bg-gray-800 rounded-lg text-sm w-full p-2.5 mb-6 h-32"
+        className="mb-6 h-32 w-full rounded-lg border border-gray-100 bg-gray-50 p-2.5 text-sm dark:border-gray-700 dark:bg-gray-800"
         placeholder="Your message..."
         required
       ></textarea>
       <button
         type="submit"
-        className="bg-blue-500 hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center text-white"
+        className="w-full rounded-lg bg-blue-500 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-blue-700 focus:outline-none focus:ring-4 focus:ring-blue-300 sm:w-auto"
       >
         Submit
       </button>

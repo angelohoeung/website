@@ -26,11 +26,11 @@ const GitHubRepos = ({ username }: { username: string }) => {
     setLoading(true);
     axios
       .get(
-        `https://api.github.com/users/${username}/repos?sort=pushed&per_page=9`
+        `https://api.github.com/users/${username}/repos?sort=pushed&per_page=9`,
       )
       .then((response) => {
         const filteredRepos = response.data.filter(
-          (repo: Repo) => repo.language
+          (repo: Repo) => repo.language,
         );
         setRepos(filteredRepos);
       })
@@ -52,14 +52,14 @@ const GitHubRepos = ({ username }: { username: string }) => {
   }
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 text-left">
+    <div className="grid grid-cols-1 gap-5 text-left md:grid-cols-2 lg:grid-cols-3">
       {repos.map((repo) => (
         <div
           key={repo.id}
-          className="border border-gray-100 dark:border-gray-700 bg-gray-50 dark:bg-gray-800 rounded-lg p-8 relative flex flex-col justify-between"
+          className="relative flex flex-col justify-between rounded-lg border border-gray-100 bg-gray-50 p-8 dark:border-gray-700 dark:bg-gray-800"
         >
           <div>
-            <h3 className="flex justify-between items-center">
+            <h3 className="flex items-center justify-between">
               <a
                 href={repo.html_url}
                 rel="noopener noreferrer"
@@ -70,14 +70,14 @@ const GitHubRepos = ({ username }: { username: string }) => {
               </a>
               {repo.language && (
                 <img
-                  className="w-7 h-7"
+                  className="h-7 w-7"
                   src={iconUrl(repo.language)}
                   alt={repo.language}
                   title={repo.language}
                 />
               )}
             </h3>
-            <p className="text-gray-400 mt-2 mb-4 flex-grow">
+            <p className="mb-4 mt-2 flex-grow text-gray-400">
               {repo.description}
             </p>
           </div>
