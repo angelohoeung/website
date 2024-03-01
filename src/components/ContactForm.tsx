@@ -1,10 +1,26 @@
 const ContactForm = () => {
   return (
     <form
-      action="https://getform.io/f/Qe1g5obJ"
+      action="https://api.web3forms.com/submit"
       method="POST"
       className="max-w-lg"
     >
+      <input
+        type="hidden"
+        name="access_key"
+        value="33e61154-dd0f-40a9-93c5-9fe7120192b6"
+      />
+      <input
+        type="hidden"
+        name="subject"
+        value="New Submission from Web3Forms"
+      />
+      <input
+        type="hidden"
+        name="redirect"
+        value="https://web3forms.com/success"
+      />
+      <input type="checkbox" name="botcheck" className="hidden" />
       <input
         type="text"
         name="name"
