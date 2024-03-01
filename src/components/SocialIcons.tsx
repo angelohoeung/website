@@ -5,6 +5,7 @@ const SocialIcons = () => (
       href="https://github.com/angelohoeung"
       className="text-black hover:text-gray-500 dark:text-white dark:hover:text-gray-300"
       target="_blank"
+      rel="noopener noreferrer"
       title="GitHub"
     >
       <FiGithub className="h-7 w-7" />
@@ -13,6 +14,7 @@ const SocialIcons = () => (
       href="https://www.linkedin.com/in/angelohoeung"
       className="text-black hover:text-gray-500 dark:text-white dark:hover:text-gray-300"
       target="_blank"
+      rel="noopener noreferrer"
       title="LinkedIn"
     >
       <FiLinkedin className="h-7 w-7" />
@@ -21,6 +23,7 @@ const SocialIcons = () => (
       href="mailto:angelohoeung@gmail.com"
       className="text-black hover:text-gray-500 dark:text-white dark:hover:text-gray-300"
       target="_blank"
+      rel="noopener noreferrer"
       title="Email"
     >
       <FiMail className="h-7 w-7" />
