@@ -654,6 +654,10 @@ html {
   min-height: 100dvh;
 }
 
+.min-h-\[100svh\] {
+  min-height: 100svh;
+}
+
 .w-10 {
   width: 2.5rem;
 }
