@@ -59,7 +59,7 @@ const GitHubRepos = ({ username }: { username: string }) => {
           className="relative flex flex-col justify-between rounded-lg border border-gray-100 bg-gray-50 p-8 dark:border-gray-700 dark:bg-gray-800"
         >
           <div>
-            <h3 className="flex items-center justify-between">
+            <h2 className="flex items-center justify-between">
               <a
                 href={repo.html_url}
                 rel="noopener noreferrer"
@@ -76,7 +76,7 @@ const GitHubRepos = ({ username }: { username: string }) => {
                   title={repo.language}
                 />
               )}
-            </h3>
+            </h2>
             <p className="mb-4 mt-2 flex-grow text-gray-400">
               {repo.description}
             </p>

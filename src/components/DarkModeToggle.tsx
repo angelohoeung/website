@@ -25,11 +25,7 @@ const DarkModeToggle = () => {
   };
 
   return (
-    <button
-      onClick={toggleTheme}
-      id="theme-toggle"
-      className="theme-toggle-btn"
-    >
+    <button onClick={toggleTheme}>
       {theme === "dark" ? (
         <MdLightMode
           title="Switch theme"
