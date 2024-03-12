@@ -650,12 +650,12 @@ html {
   height: 1.75rem;
 }
 
-.min-h-\[100dvh\] {
-  min-height: 100dvh;
-}
-
 .min-h-\[100svh\] {
   min-height: 100svh;
+}
+
+.min-h-screen {
+  min-height: 100vh;
 }
 
 .w-10 {
