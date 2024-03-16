@@ -24,6 +24,7 @@ const ContactForm = () => {
       <input
         type="text"
         name="name"
+        autoComplete="name"
         className="mb-6 w-full rounded-lg border border-gray-100 bg-gray-50 p-2.5 text-sm dark:border-gray-700 dark:bg-gray-800"
         placeholder="Name"
         required
@@ -31,6 +32,7 @@ const ContactForm = () => {
       <input
         type="email"
         name="email"
+        autoComplete="email"
         className="mb-6 w-full rounded-lg border border-gray-100 bg-gray-50 p-2.5 text-sm dark:border-gray-700 dark:bg-gray-800"
         placeholder="Email"
         required
