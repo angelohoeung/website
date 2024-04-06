@@ -26,7 +26,7 @@ const GitHubRepos = ({ username }: { username: string }) => {
     setLoading(true);
     axios
       .get(
-        `https://api.github.com/users/${username}/repos?sort=pushed&per_page=9`,
+        `https://api.github.com/users/${username}/repos?type=all&sort=pushed&per_page=9`,
       )
       .then((response) => {
         const filteredRepos = response.data.filter(
