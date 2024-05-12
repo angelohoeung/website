@@ -20,7 +20,7 @@ const SocialIcons = () => (
       <FiLinkedin className="h-7 w-7" />
     </a>
     <a
-      href="mailto:angelohoeung@gmail.com"
+      href="mailto:hi@hoeung.ca"
       className="text-black hover:text-gray-500 dark:text-white dark:hover:text-gray-300"
       target="_blank"
       rel="noopener noreferrer"
