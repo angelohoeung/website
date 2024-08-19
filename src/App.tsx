@@ -11,7 +11,7 @@ function App() {
           <p className="text-base font-extralight">Hi, my name is</p>
           <h1 className="py-4 text-6xl">Angelo Hoeung</h1>
           <p className="py-4 text-xl font-light">
-            I'm a third year computer science student and teaching assistant at
+            I'm a fourth year computer science student and teaching assistant at
             the University of Windsor. I have a passion for software development
             and am always hoping to learn more.
           </p>
