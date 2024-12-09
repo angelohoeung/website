@@ -6,7 +6,7 @@ function App() {
   return (
     <>
       <Navbar />
-      <div className="flex min-h-dvh items-center justify-center pt-[--scroll-padding]">
+      <div className="flex min-h-svh items-center justify-center pt-[--scroll-padding]">
         <section className="max-w-2xl px-5 text-center md:px-0">
           <p className="text-base font-extralight">Hi, my name is</p>
           <h1 className="py-4 text-6xl">Angelo Hoeung</h1>
