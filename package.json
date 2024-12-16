@@ -5,9 +5,9 @@
   "type": "module",
   "scripts": {
     "dev": "bunx --bun vite",
-    "build": "tsc -b && vite build",
+    "build": "tsc -b && bunx --bun vite build",
     "lint": "eslint . --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview"
+    "preview": "bunx --bun vite preview"
   },
   "dependencies": {
     "@fontsource-variable/inter": "^5.1.0",
