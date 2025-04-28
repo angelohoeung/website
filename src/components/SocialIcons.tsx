@@ -11,7 +11,7 @@ const SocialIcons = () => (
       <FiGithub className="h-7 w-7" />
     </a>
     <a
-      href="https://www.linkedin.com/in/angelohoeung"
+      href="https://www.linkedin.com/in/hoeung"
       className="text-black hover:text-gray-500 dark:text-white dark:hover:text-gray-300"
       target="_blank"
       rel="noopener noreferrer"
