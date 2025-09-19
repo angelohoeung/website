@@ -77,7 +77,7 @@ const GitHubRepos = ({ username }: { username: string }) => {
                 />
               )}
             </h2>
-            <p className="mb-4 mt-2 flex-grow text-gray-400">
+            <p className="mb-4 mt-2 grow text-gray-400">
               {repo.description}
             </p>
           </div>

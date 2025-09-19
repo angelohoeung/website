@@ -6,7 +6,7 @@ function App() {
   return (
     <>
       <Navbar />
-      <div className="flex min-h-svh items-center justify-center pt-[--scroll-padding]">
+      <div className="flex min-h-svh items-center justify-center pt-(--scroll-padding)">
         <section className="max-w-2xl px-5 text-center md:px-0">
           <p className="text-base font-extralight">Hi, my name is</p>
           <h1 className="py-4 text-6xl">Angelo Hoeung</h1>
@@ -17,13 +17,13 @@ function App() {
           </p>
         </section>
       </div>
-      <section className="mx-auto mb-24 max-w-screen-xl px-5 xl:px-0">
+      <section className="mx-auto mb-24 max-w-(--breakpoint-xl) px-5 xl:px-0">
         <h1 id="projects" className="mb-12 text-5xl">
           Projects
         </h1>
         <GitHubRepos username="angelohoeung" />
       </section>
-      <section className="mx-auto mb-12 max-w-screen-xl px-5 xl:px-0">
+      <section className="mx-auto mb-12 max-w-(--breakpoint-xl) px-5 xl:px-0">
         <h1 id="contact" className="mb-12 text-5xl">
           Contact
         </h1>
